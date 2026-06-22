@@ -631,7 +631,7 @@ h3 {
 .comic-frame.flow-hero-frame img {
   width: auto;
   max-width: 100%;
-  max-height: min(82vh, 920px);
+  max-height: min(68vh, 760px);
   object-fit: contain;
 }
 

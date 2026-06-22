@@ -133,9 +133,16 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertNotIn('class="visual-card flow-card"', html)
         self.assertEqual(html.count("assets/images/codex/codex-app-flow.png"), 1)
         self.assertIn('class="comic-frame flow-hero-frame reveal"', html)
-        self.assertIn("max-height: min(82vh, 920px)", css)
+        self.assertIn("max-height: min(68vh, 760px)", css)
         self.assertIn(".comic-frame.flow-hero-frame img", css)
         self.assertIn("width: auto", css)
+        self.assertIn("object-fit: contain", css)
+
+    def test_homepage_primary_action_only_links_to_codex(self):
+        html = self.read("index.html")
+        self.assertIn('<a class="primary-btn" href="codex.html">配置 Codex</a>', html)
+        self.assertNotIn('href="deployment.html">部署站点</a>', html)
+        self.assertNotIn('href="gpt-image-skill.html">生成图片</a>', html)
 
     def test_homepage_template_preview_section_is_removed(self):
         html = self.read("index.html")
