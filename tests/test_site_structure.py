@@ -92,6 +92,9 @@ class StaticSiteStructureTest(unittest.TestCase):
         html = self.read("index.html")
         self.assertRegex(html, r"<!doctype html>", "index should be a direct HTML entry")
         self.assertNotRegex(html, re.compile(r"<script[^>]+type=[\"']module[\"']", re.I))
+        self.assertIn("<title>CodingPlan教程中心</title>", html)
+        self.assertIn('content="CodingPlan教程中心：', html)
+        self.assertNotIn("Codinghub 教程中心", html)
 
     def test_codex_page_uses_local_coding_hub_flow(self):
         html = self.read("codex.html")
