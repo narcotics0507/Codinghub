@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenClaw 本地 Agent 配置 | Codinghub Docs</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-text"><strong>Codinghub Docs</strong><span>AI 工具自助教程中心</span></span></a>
+        <div class="nav-links"><a href="index.html">总览</a><a href="codex.html">Codex</a><a href="cherry-studio.html">Cherry</a><a href="gpt-image-skill.html">绘图</a><a class="active" href="openclaw.html">OpenClaw</a><a href="deployment.html">部署</a></div>
+        <a class="ghost-btn" href="#section-1">开始</a>
+      </div>
+      <div class="progress" data-scroll-progress></div>
+    </nav>
+
+    <section class="page-hero">
+      <div class="reveal">
+        <span class="eyebrow"><span class="pulse-dot"></span> 本地 Agent</span>
+        <h1>OpenClaw 本地 Agent 配置</h1>
+        <p>用于记录本地服务、模型配置、消息渠道和检测修复流程。把这里的示例替换成你实际使用的面板和截图即可。</p>
+        <p class="source-note">内容源：当前仓库原创模板。</p>
+      </div>
+      <div class="comic-frame reveal"><img src="assets/images/docs-hero.png" alt="OpenClaw 配置视觉图" data-zoom></div>
+    </section>
+
+    <main class="tutorial-layout">
+      <aside class="side-rail">
+        <h3>教程目录</h3>
+        <a class="rail-link active" href="#section-1"><span class="rail-dot"></span>导读</a>
+        <a class="rail-link" href="#section-2"><span class="rail-dot"></span>准备角色</a>
+        <a class="rail-link" href="#section-3"><span class="rail-dot"></span>配置模型</a>
+        <a class="rail-link" href="#section-4"><span class="rail-dot"></span>接入消息</a>
+        <a class="rail-link" href="#section-5"><span class="rail-dot"></span>检测修复</a>
+      </aside>
+      <div class="content-stack">
+        <section id="section-1" class="glass-card reveal"><h2>导读</h2><aside class="doc-callout"><p>本地 Agent 类工具通常涉及面板、服务进程、模型服务商和消息渠道。教程要先讲清角色，再讲操作。</p></aside></section>
+        <section id="section-2" class="glass-card reveal"><h2>1. 准备角色</h2><div class="table-wrap"><table class="guide-table"><thead><tr><th>角色</th><th>说明</th></tr></thead><tbody><tr><td>管理面板</td><td>负责安装、检测和配置。</td></tr><tr><td>Agent 服务</td><td>真正处理消息和任务。</td></tr><tr><td>模型服务商</td><td>提供文本或图片模型能力。</td></tr><tr><td>消息渠道</td><td>把用户消息送到 Agent。</td></tr></tbody></table></div></section>
+        <section id="section-3" class="glass-card reveal"><h2>2. 配置模型</h2><p>新增服务商后填写 Base URL、API Key 和模型名。保存后先做一次最小测试。</p><div class="code-card"><div class="code-head"><span>测试问题</span><button class="copy-btn">复制</button></div><pre><code>请回复“模型服务已连通”，并用一句话说明当前时间。</code></pre></div></section>
+        <section id="section-4" class="glass-card reveal"><h2>3. 接入消息渠道</h2><div class="stepper"><div class="step"><div class="step-num">1</div><div><strong>创建渠道配置</strong><p>复制平台提供的回调地址和密钥。</p></div></div><div class="step"><div class="step-num">2</div><div><strong>保存凭据</strong><p>不要把 token 放在公开文档或仓库里。</p></div></div><div class="step"><div class="step-num">3</div><div><strong>发送测试消息</strong><p>确认消息能进入 Agent 并返回。</p></div></div></div></section>
+        <section id="section-5" class="glass-card reveal"><h2>4. 检测修复</h2><p>遇到问题先确认服务进程、端口占用、模型服务响应、渠道签名和网络连接。把错误截图补到本节会更利于团队排查。</p></section>
+      </div>
+    </main>
+    <footer class="footer">Codinghub Docs · OpenClaw guide</footer>
+  </div>
+  <div class="lightbox"><button aria-label="关闭">×</button><img alt=""></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

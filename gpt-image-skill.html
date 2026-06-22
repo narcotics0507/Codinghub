@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gpt-image Skill 绘图教程 | Codinghub Docs</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-text"><strong>Codinghub Docs</strong><span>AI 工具自助教程中心</span></span></a>
+        <div class="nav-links"><a href="index.html">总览</a><a href="codex.html">Codex</a><a href="cherry-studio.html">Cherry</a><a class="active" href="gpt-image-skill.html">绘图</a><a href="openclaw.html">OpenClaw</a><a href="deployment.html">部署</a></div>
+        <a class="ghost-btn" href="#generator">命令生成器</a>
+      </div>
+      <div class="progress" data-scroll-progress></div>
+    </nav>
+
+    <section class="page-hero">
+      <div class="reveal">
+        <span class="eyebrow"><span class="pulse-dot"></span> 教程图和封面</span>
+        <h1>gpt-image Skill 绘图教程</h1>
+        <p>把常见参数整理成可复制命令，方便生成教程封面、流程插图和视觉参考。</p>
+        <p class="source-note">内容源：当前仓库原创模板。</p>
+      </div>
+      <div class="comic-frame reveal"><img src="assets/images/docs-hero.png" alt="绘图教程视觉图" data-zoom></div>
+    </section>
+
+    <main class="tutorial-layout">
+      <aside class="side-rail">
+        <h3>教程目录</h3>
+        <a class="rail-link active" href="#section-1"><span class="rail-dot"></span>导读</a>
+        <a class="rail-link" href="#section-2"><span class="rail-dot"></span>准备环境</a>
+        <a class="rail-link" href="#section-3"><span class="rail-dot"></span>命令示例</a>
+        <a class="rail-link" href="#generator"><span class="rail-dot"></span>命令生成器</a>
+      </aside>
+      <div class="content-stack">
+        <section id="section-1" class="glass-card reveal">
+          <h2>导读</h2>
+          <aside class="doc-callout"><p>图片生成适合做教程配图、封面和概念草稿。不要把敏感资料、客户隐私或未公开产品信息放进提示词。</p></aside>
+        </section>
+        <section id="section-2" class="glass-card reveal">
+          <h2>1. 准备环境</h2>
+          <div class="code-card"><div class="code-head"><span>shell</span><button class="copy-btn">复制</button></div><pre><code>export OPENAI_BASE_URL="https://example.com/v1"
+export OPENAI_API_KEY="替换成你的个人密钥"</code></pre></div>
+        </section>
+        <section id="section-3" class="glass-card reveal">
+          <h2>2. 命令示例</h2>
+          <div class="code-card"><div class="code-head"><span>shell</span><button class="copy-btn">复制</button></div><pre><code>gpt-image -p "一张现代 AI 工具教程封面图，干净、明亮、科技感" -f cover.png --size landscape --quality high</code></pre></div>
+          <div class="table-wrap"><table class="guide-table"><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody><tr><td><code>--size landscape</code></td><td>适合横版封面和首页图。</td></tr><tr><td><code>--quality high</code></td><td>适合最终配图和中文信息图。</td></tr><tr><td><code>-f cover.png</code></td><td>指定输出文件名。</td></tr></tbody></table></div>
+        </section>
+        <section id="generator" class="glass-card reveal">
+          <h2>命令生成器</h2>
+          <div class="generator" data-command-generator>
+            <div class="field-grid">
+              <label class="full-field">提示词<textarea id="genPrompt">一张现代 AI 工具教程封面图，干净、明亮、科技感，横版</textarea></label>
+              <label>尺寸<select id="genSize"><option value="landscape">landscape</option><option value="square">square</option><option value="portrait">portrait</option></select></label>
+              <label>质量<select id="genQuality"><option value="high">high</option><option value="medium">medium</option><option value="low">low</option></select></label>
+              <label>输出文件<input id="genFile" value="cover.png"></label>
+            </div>
+            <p class="generator-hint" data-command-hint></p>
+            <div class="code-card"><div class="code-head"><span>生成命令</span><button class="copy-btn">复制</button></div><pre><code data-command-output></code></pre></div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">Codinghub Docs · Image guide</footer>
+  </div>
+  <div class="lightbox"><button aria-label="关闭">×</button><img alt=""></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

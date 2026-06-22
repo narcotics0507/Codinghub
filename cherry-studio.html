@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cherry Studio 接入模型 | Codinghub Docs</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-text"><strong>Codinghub Docs</strong><span>AI 工具自助教程中心</span></span></a>
+        <div class="nav-links"><a href="index.html">总览</a><a href="codex.html">Codex</a><a class="active" href="cherry-studio.html">Cherry</a><a href="gpt-image-skill.html">绘图</a><a href="openclaw.html">OpenClaw</a><a href="deployment.html">部署</a></div>
+        <a class="ghost-btn" href="#section-1">开始</a>
+      </div>
+      <div class="progress" data-scroll-progress></div>
+    </nav>
+
+    <section class="page-hero">
+      <div class="reveal">
+        <span class="eyebrow"><span class="pulse-dot"></span> 通用 AI 客户端</span>
+        <h1>Cherry Studio 接入模型</h1>
+        <p>适合日常聊天、总结、知识库和简单图片需求。这里保留可替换流程，便于你填入自己的服务商信息。</p>
+        <p class="source-note">内容源：当前仓库原创模板。</p>
+      </div>
+      <div class="comic-frame reveal"><img src="assets/images/docs-hero.png" alt="Cherry Studio 接入流程视觉图" data-zoom></div>
+    </section>
+
+    <main class="tutorial-layout">
+      <aside class="side-rail">
+        <h3>教程目录</h3>
+        <a class="rail-link active" href="#section-1"><span class="rail-dot"></span>导读</a>
+        <a class="rail-link" href="#section-2"><span class="rail-dot"></span>新增服务商</a>
+        <a class="rail-link" href="#section-3"><span class="rail-dot"></span>选择模型</a>
+        <a class="rail-link" href="#section-4"><span class="rail-dot"></span>验证对话</a>
+      </aside>
+      <div class="content-stack">
+        <section id="section-1" class="glass-card reveal">
+          <h2>导读</h2>
+          <aside class="doc-callout"><p>Cherry Studio 更适合非工程同事使用。把服务商信息配置好后，就可以在一个客户端里切换模型和场景。</p></aside>
+        </section>
+        <section id="section-2" class="glass-card reveal">
+          <h2>1. 新增服务商</h2>
+          <div class="stepper"><div class="step"><div class="step-num">1</div><div><strong>打开设置</strong><p>进入模型服务商配置。</p></div></div><div class="step"><div class="step-num">2</div><div><strong>新增自定义服务商</strong><p>填入 Base URL 和 API Key。</p></div></div><div class="step"><div class="step-num">3</div><div><strong>保存配置</strong><p>避免把真实密钥贴进公共文档。</p></div></div></div>
+        </section>
+        <section id="section-3" class="glass-card reveal">
+          <h2>2. 选择模型</h2>
+          <div class="table-wrap"><table class="guide-table"><thead><tr><th>场景</th><th>推荐</th></tr></thead><tbody><tr><td>日常问答</td><td>选择速度较快的通用模型。</td></tr><tr><td>长文总结</td><td>选择上下文能力更强的模型。</td></tr><tr><td>图片生成</td><td>选择图像模型或使用绘图教程里的命令。</td></tr></tbody></table></div>
+        </section>
+        <section id="section-4" class="glass-card reveal">
+          <h2>3. 验证对话</h2>
+          <p>保存后新建一个会话，发送一句测试问题。如果返回异常，检查服务地址、密钥、模型名和网络连接。</p>
+          <div class="code-card"><div class="code-head"><span>测试提示词</span><button class="copy-btn">复制</button></div><pre><code>请用三句话介绍这个模型配置是否已经可用，并给我一个后续测试建议。</code></pre></div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">Codinghub Docs · Cherry Studio guide</footer>
+  </div>
+  <div class="lightbox"><button aria-label="关闭">×</button><img alt=""></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

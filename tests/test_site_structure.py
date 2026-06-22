@@ -1,0 +1,87 @@
+import re
+import unittest
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+PAGES = [
+    "index.html",
+    "codex.html",
+    "cherry-studio.html",
+    "gpt-image-skill.html",
+    "openclaw.html",
+    "deployment.html",
+]
+
+ASSETS = [
+    "assets/css/styles.css",
+    "assets/js/main.js",
+    "assets/favicon.svg",
+]
+
+BLOCKED_STRINGS = [
+    "coding-plan-docs.yeelight.com",
+    "yeelight.feishu.cn",
+    "www.feishu.cn/docx",
+    "assets/images/feishu-",
+]
+
+
+class StaticSiteStructureTest(unittest.TestCase):
+    def read(self, path):
+        return (ROOT / path).read_text(encoding="utf-8")
+
+    def test_required_static_files_exist(self):
+        for path in PAGES + ASSETS:
+            with self.subTest(path=path):
+                self.assertTrue((ROOT / path).is_file(), f"missing {path}")
+
+    def test_pages_use_shared_assets_and_nav(self):
+        for page in PAGES:
+            html = self.read(page)
+            with self.subTest(page=page):
+                self.assertIn('href="assets/css/styles.css"', html)
+                self.assertIn('src="assets/js/main.js"', html)
+                self.assertIn('href="assets/favicon.svg"', html)
+                self.assertRegex(html, r'<nav class="nav"')
+                for href in PAGES:
+                    self.assertIn(f'href="{href}"', html)
+
+    def test_interaction_hooks_are_present(self):
+        all_html = "\n".join(self.read(page) for page in PAGES)
+        required_hooks = [
+            'class="reveal',
+            "data-zoom",
+            'class="copy-btn"',
+            'class="lightbox"',
+            "data-scroll-progress",
+            "data-home-hero",
+            "data-command-generator",
+            'class="rail-link',
+        ]
+        for hook in required_hooks:
+            with self.subTest(hook=hook):
+                self.assertIn(hook, all_html)
+
+    def test_no_copied_source_domain_or_feishu_assets(self):
+        searchable = []
+        for pattern in ["*.html", "*.css", "*.js", "*.md"]:
+            searchable.extend(ROOT.glob(pattern))
+            searchable.extend((ROOT / "assets").glob(f"**/{pattern}"))
+        for path in searchable:
+            text = path.read_text(encoding="utf-8")
+            for blocked in BLOCKED_STRINGS:
+                with self.subTest(path=path.relative_to(ROOT), blocked=blocked):
+                    self.assertNotIn(blocked, text)
+
+    def test_cloudflare_pages_needs_no_build_step(self):
+        package_json = ROOT / "package.json"
+        self.assertFalse(package_json.exists(), "pure static site should not require npm build")
+        html = self.read("index.html")
+        self.assertRegex(html, r"<!doctype html>", "index should be a direct HTML entry")
+        self.assertNotRegex(html, re.compile(r"<script[^>]+type=[\"']module[\"']", re.I))
+
+
+if __name__ == "__main__":
+    unittest.main()

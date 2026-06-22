@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codinghub 教程中心</title>
+  <meta name="description" content="Codinghub 教程中心：Codex、Cherry Studio、gpt-image、OpenClaw 和 Cloudflare Pages 的静态自助教程。">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"></span>
+          <span class="brand-text"><strong>Codinghub Docs</strong><span>AI 工具自助教程中心</span></span>
+        </a>
+        <div class="nav-links">
+          <a class="active" href="index.html">总览</a>
+          <a href="codex.html">Codex</a>
+          <a href="cherry-studio.html">Cherry</a>
+          <a href="gpt-image-skill.html">绘图</a>
+          <a href="openclaw.html">OpenClaw</a>
+          <a href="deployment.html">部署</a>
+        </div>
+        <a class="ghost-btn" href="#paths">选择路径</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="reveal">
+          <span class="eyebrow"><span class="pulse-dot"></span> Codinghub 自助入口</span>
+          <h1>AI 工具配置，<span>从入口到部署一次讲清。</span></h1>
+          <p class="hero-copy">把模型密钥、桌面工具、图片生成、本地 Agent 和站点部署拆成几条清晰路径。先选使用场景，再进入对应教程完成安装、配置和验证。</p>
+          <div class="hero-signature">清晰步骤 · 可复制命令 · 可部署模板</div>
+          <div class="hero-actions">
+            <a class="primary-btn" href="codex.html">配置 Codex</a>
+            <a class="secondary-btn" href="deployment.html">部署站点</a>
+            <a class="secondary-btn" href="gpt-image-skill.html">生成图片</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" data-home-hero data-mode="codex" aria-label="Codinghub 使用场景">
+          <img class="hero-image" src="assets/images/docs-hero.png" alt="AI 工具教程中心视觉图" data-zoom>
+          <div class="hero-card-top">
+            <span>Workflow Hub</span>
+            <strong>统一入口 · 统一教程</strong>
+          </div>
+          <div class="tool-switch" data-home-tools aria-label="切换使用场景">
+            <button class="active" type="button" data-home-tool="codex" aria-pressed="true">Codex</button>
+            <button type="button" data-home-tool="cherry" aria-pressed="false">Cherry</button>
+            <button type="button" data-home-tool="image" aria-pressed="false">绘图</button>
+            <button type="button" data-home-tool="openclaw" aria-pressed="false">OpenClaw</button>
+            <button type="button" data-home-tool="deploy" aria-pressed="false">部署</button>
+            <button type="button" data-home-tool="ops" aria-pressed="false">维护</button>
+          </div>
+          <div class="hero-tool-panels">
+            <article class="hero-tool-panel active" data-home-panel="codex">
+              <span>工程开发优先</span>
+              <h2>写代码、改项目、跑命令。</h2>
+              <p>先准备密钥和基础配置，再让 Codex 接管重复的工程操作。</p>
+            </article>
+            <article class="hero-tool-panel" data-home-panel="cherry" hidden>
+              <span>日常办公更顺手</span>
+              <h2>聊天、总结、知识库。</h2>
+              <p>把通用对话和轻量资料处理放进一个更适合同事日常使用的客户端。</p>
+            </article>
+            <article class="hero-tool-panel" data-home-panel="image" hidden>
+              <span>教程配图和封面</span>
+              <h2>用命令生成视觉素材。</h2>
+              <p>把提示词、尺寸、质量和输出文件整理成可复制的命令。</p>
+            </article>
+            <article class="hero-tool-panel" data-home-panel="openclaw" hidden>
+              <span>本地 Agent</span>
+              <h2>接入消息渠道和自动化。</h2>
+              <p>用本地面板管理环境、模型服务商和消息入口。</p>
+            </article>
+            <article class="hero-tool-panel" data-home-panel="deploy" hidden>
+              <span>Cloudflare Pages</span>
+              <h2>推送 Git 后自动上线。</h2>
+              <p>用纯静态结构部署文档站，后续改内容只需要提交仓库。</p>
+            </article>
+            <article class="hero-tool-panel" data-home-panel="ops" hidden>
+              <span>长期维护</span>
+              <h2>把教程当作产品维护。</h2>
+              <p>每个页面都有固定结构，便于替换截图、更新命令和补充 FAQ。</p>
+            </article>
+          </div>
+          <div class="hub-line"><span>HTML</span><i></i><span>CSS</span><i></i><span>Cloudflare Pages</span></div>
+        </div>
+      </section>
+
+      <section id="paths" class="section">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="pulse-dot"></span> 五条路径</span>
+            <h2>选择你的使用场景</h2>
+          </div>
+          <p>工程开发优先用 Codex；日常对话使用 Cherry Studio；需要教程图时进入绘图页；本地 Agent 和消息渠道看 OpenClaw；站点上线看 Cloudflare Pages 部署。</p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card reveal" style="--accent:#18c37e" data-home-card="codex" tabindex="0">
+            <div class="path-number">01</div>
+            <h3>Codex 自助安装和配置</h3>
+            <p>适合写代码、改项目、跑测试和维护仓库。先整理密钥，再配置本机环境。</p>
+            <div class="tag-row"><span class="tag">编程</span><span class="tag">CLI</span><span class="tag">配置文件</span></div>
+            <div class="path-actions"><a class="primary-btn" href="codex.html">查看教程</a><a class="text-link" href="deployment.html">部署模板</a></div>
+            <div class="lamp-line"></div>
+          </article>
+          <article class="path-card reveal" style="--accent:#f2d47a" data-home-card="cherry" tabindex="0">
+            <div class="path-number">02</div>
+            <h3>Cherry Studio 接入模型</h3>
+            <p>适合日常对话、总结文档、整理资料和轻量知识库场景。</p>
+            <div class="tag-row"><span class="tag">对话</span><span class="tag">办公</span><span class="tag">知识库</span></div>
+            <div class="path-actions"><a class="primary-btn" href="cherry-studio.html">查看教程</a></div>
+            <div class="lamp-line"></div>
+          </article>
+          <article class="path-card reveal" style="--accent:#55bdd3" data-home-card="image" tabindex="0">
+            <div class="path-number">03</div>
+            <h3>gpt-image Skill 绘图</h3>
+            <p>适合做教程封面、流程图配图、海报草稿和参考图编辑。</p>
+            <div class="tag-row"><span class="tag">图片</span><span class="tag">命令生成</span><span class="tag">封面</span></div>
+            <div class="path-actions"><a class="primary-btn" href="gpt-image-skill.html">查看教程</a></div>
+            <div class="lamp-line"></div>
+          </article>
+          <article class="path-card reveal" style="--accent:#ff8a4c" data-home-card="openclaw" tabindex="0">
+            <div class="path-number">04</div>
+            <h3>OpenClaw 本地 Agent</h3>
+            <p>适合需要本地服务、消息渠道和自动化任务入口的团队。</p>
+            <div class="tag-row"><span class="tag">Agent</span><span class="tag">消息渠道</span><span class="tag">本地服务</span></div>
+            <div class="path-actions"><a class="primary-btn" href="openclaw.html">查看教程</a></div>
+            <div class="lamp-line"></div>
+          </article>
+          <article class="path-card reveal" style="--accent:#7b61ff" data-home-card="deploy" tabindex="0">
+            <div class="path-number">05</div>
+            <h3>Cloudflare Pages 部署</h3>
+            <p>适合把这套静态文档站连接到 GitHub，并绑定自己的域名。</p>
+            <div class="tag-row"><span class="tag">静态站</span><span class="tag">GitHub</span><span class="tag">域名</span></div>
+            <div class="path-actions"><a class="primary-btn" href="deployment.html">查看教程</a></div>
+            <div class="lamp-line"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow"><span class="pulse-dot"></span> 视觉预览</span>
+            <h2>用统一模板维护长篇教程</h2>
+          </div>
+          <p>每个教程页都使用同一套 hero、目录、正文卡片、代码块和图片放大交互。真实截图准备好后，只需要替换 `assets/images` 下的图片。</p>
+        </div>
+        <div class="visual-grid comic-preview-grid">
+          <figure class="visual-card reveal">
+            <img src="assets/images/docs-hero.png" alt="教程中心首页视觉预览" data-zoom>
+            <figcaption>首页 hero 和路径选择</figcaption>
+          </figure>
+          <figure class="visual-card reveal">
+            <img src="assets/images/docs-hero.png" alt="教程页视觉预览" data-zoom>
+            <figcaption>教程页结构：目录、步骤、代码块、FAQ</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Codinghub Docs · Static guide for Cloudflare Pages</footer>
+  </div>
+  <div class="lightbox"><button aria-label="关闭">×</button><img alt=""></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

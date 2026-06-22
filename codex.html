@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex 自助安装和配置 | Codinghub Docs</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-text"><strong>Codinghub Docs</strong><span>AI 工具自助教程中心</span></span></a>
+        <div class="nav-links"><a href="index.html">总览</a><a class="active" href="codex.html">Codex</a><a href="cherry-studio.html">Cherry</a><a href="gpt-image-skill.html">绘图</a><a href="openclaw.html">OpenClaw</a><a href="deployment.html">部署</a></div>
+        <a class="ghost-btn" href="#section-1">开始</a>
+      </div>
+      <div class="progress" data-scroll-progress></div>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <div class="reveal">
+          <span class="eyebrow"><span class="pulse-dot"></span> 工程开发优先</span>
+          <h1>Codex 自助安装和配置</h1>
+          <p>先准备模型服务地址和个人密钥，再把配置写入本机。这个页面是可替换模板，适合后续补充你自己的截图和内部链接。</p>
+          <p class="source-note">内容源：当前仓库原创模板，可按团队实际流程替换。</p>
+          <div class="quick-stats"><div class="stat"><strong>4 步</strong><span>完成配置</span></div><div class="stat"><strong>2 文件</strong><span>本机配置</span></div><div class="stat"><strong>1 次</strong><span>重启验证</span></div></div>
+        </div>
+        <div class="comic-frame reveal">
+          <img src="assets/images/docs-hero.png" alt="Codex 配置流程视觉图" data-zoom>
+        </div>
+      </section>
+
+      <main class="tutorial-layout">
+        <aside class="side-rail">
+          <h3>教程目录</h3>
+          <a class="rail-link active" href="#section-1"><span class="rail-dot"></span>导读</a>
+          <a class="rail-link" href="#section-2"><span class="rail-dot"></span>准备信息</a>
+          <a class="rail-link" href="#section-3"><span class="rail-dot"></span>写入配置</a>
+          <a class="rail-link" href="#section-4"><span class="rail-dot"></span>验证结果</a>
+          <a class="rail-link" href="#section-5"><span class="rail-dot"></span>常见问题</a>
+        </aside>
+        <div class="content-stack">
+          <section id="section-1" class="glass-card reveal">
+            <h2>导读</h2>
+            <aside class="doc-callout"><p>这份教程适合第一次配置 Codex 的同事。真实落地时，把示例地址、模型名和截图替换成你的团队资料。</p></aside>
+            <p>建议先确认账号、API 密钥和模型服务地址，再开始改本机配置。不要把真实密钥写进网页、截图或公开仓库。</p>
+          </section>
+          <section id="section-2" class="glass-card reveal">
+            <h2>1. 准备信息</h2>
+            <div class="table-wrap"><table class="guide-table"><thead><tr><th>信息</th><th>用途</th></tr></thead><tbody><tr><td>Base URL</td><td>告诉客户端请求哪个模型服务入口。</td></tr><tr><td>API Key</td><td>个人密钥，用于鉴权和额度统计。</td></tr><tr><td>模型名</td><td>决定默认使用的文本模型。</td></tr></tbody></table></div>
+          </section>
+          <section id="section-3" class="glass-card reveal">
+            <h2>2. 写入配置</h2>
+            <p>先创建配置目录，再把团队提供的配置写入本机文件。</p>
+            <div class="code-card"><div class="code-head"><span>shell</span><button class="copy-btn">复制</button></div><pre><code>mkdir -p ~/.codex</code></pre></div>
+            <div class="code-card"><div class="code-head"><span>toml</span><button class="copy-btn">复制</button></div><pre><code>model_provider = "OpenAI"
+model = "your-model-name"
+
+[model_providers.OpenAI]
+name = "OpenAI"
+base_url = "https://example.com/v1"
+env_key = "OPENAI_API_KEY"</code></pre></div>
+          </section>
+          <section id="section-4" class="glass-card reveal">
+            <h2>3. 验证结果</h2>
+            <div class="stepper"><div class="step"><div class="step-num">1</div><div><strong>重启客户端</strong><p>配置写入后重新打开 Codex。</p></div></div><div class="step"><div class="step-num">2</div><div><strong>发送测试问题</strong><p>确认模型能正常回复。</p></div></div><div class="step"><div class="step-num">3</div><div><strong>记录异常</strong><p>如果失败，记录错误信息、模型名和当前网络环境。</p></div></div></div>
+          </section>
+          <section id="section-5" class="glass-card reveal">
+            <h2>常见问题</h2>
+            <h3>密钥能不能共用？</h3>
+            <p>不建议。每个人使用自己的密钥，方便额度统计和问题排查。</p>
+            <h3>配置后没有生效？</h3>
+            <p>检查配置文件路径、模型名、环境变量和客户端是否重启。</p>
+          </section>
+        </div>
+      </main>
+    </main>
+    <footer class="footer">Codinghub Docs · Codex guide</footer>
+  </div>
+  <div class="lightbox"><button aria-label="关闭">×</button><img alt=""></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
