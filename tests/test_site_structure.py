@@ -138,11 +138,46 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn("width: auto", css)
         self.assertIn("object-fit: contain", css)
 
-    def test_homepage_primary_action_only_links_to_codex(self):
+    def test_homepage_matches_reference_home_structure_without_feishu(self):
         html = self.read("index.html")
+        css = self.read("assets/css/styles.css")
+        expected_text = [
+            "Codinghub 自助入口",
+            "AI 工具配置，",
+            "一次讲清。",
+            "设计 · 科技 · 效率",
+            "Coding Hub",
+            "统一密钥 · 统一模型",
+            "配置 Codex",
+            "Cherry",
+            "绘图",
+            "OpenClaw",
+            "部署",
+            "五条路径",
+            "一眼看懂",
+        ]
+        for text in expected_text:
+            with self.subTest(text=text):
+                self.assertIn(text, html)
+
+        expected_hooks = [
+            'class="nav-action"',
+            'class="light-wall"',
+            'class="light-beam beam-one"',
+            'data-home-panel="deploy"',
+            'data-home-card="deploy"',
+            'class="visual-grid comic-preview-grid"',
+        ]
+        for hook in expected_hooks:
+            with self.subTest(hook=hook):
+                self.assertIn(hook, html)
+
         self.assertIn('<a class="primary-btn" href="codex.html">配置 Codex</a>', html)
         self.assertNotIn('href="deployment.html">部署站点</a>', html)
         self.assertNotIn('href="gpt-image-skill.html">生成图片</a>', html)
+        self.assertIn("overflow-x: hidden", css)
+        self.assertIn(".hero-actions .primary-btn", css)
+        self.assertIn(".hub-line span", css)
 
     def test_homepage_template_preview_section_is_removed(self):
         html = self.read("index.html")

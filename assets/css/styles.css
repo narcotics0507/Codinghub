@@ -28,6 +28,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
+  overflow-x: hidden;
   background:
     linear-gradient(120deg, rgba(242, 212, 122, 0.12), transparent 34rem),
     radial-gradient(circle at 84% 8%, rgba(24, 195, 126, 0.12), transparent 28rem),
@@ -163,6 +164,13 @@ textarea {
   color: #fff;
 }
 
+.nav-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
 .ghost-btn,
 .small-button,
 .copy-btn {
@@ -196,6 +204,11 @@ textarea {
   grid-template-columns: minmax(0, 0.92fr) minmax(390px, 1.08fr);
   gap: clamp(34px, 4.6vw, 62px);
   align-items: center;
+}
+
+.hero > *,
+.hero-card {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -233,9 +246,9 @@ h3 {
 }
 
 .hero h1 {
-  max-width: 560px;
+  max-width: 520px;
   margin-top: 20px;
-  font-size: clamp(30px, 3vw, 42px);
+  font-size: clamp(29px, 2.9vw, 38px);
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -267,6 +280,11 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   margin-top: 28px;
+}
+
+.hero-actions .primary-btn,
+.hero-actions .secondary-btn {
+  justify-content: center;
 }
 
 .primary-btn,
@@ -320,6 +338,48 @@ h3 {
     radial-gradient(circle at 82% 26%, rgba(242, 212, 122, 0.24), transparent 18rem),
     linear-gradient(180deg, transparent 0 62%, rgba(15, 31, 25, 0.08));
   pointer-events: none;
+}
+
+.light-wall {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.light-beam {
+  position: absolute;
+  width: 34%;
+  height: 130%;
+  top: -15%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(24, 195, 126, 0.26), rgba(255, 255, 255, 0));
+  filter: blur(30px);
+  opacity: 0.76;
+  transform: rotate(14deg);
+  animation: glowShift 8s ease-in-out infinite;
+}
+
+.beam-one {
+  left: 6%;
+}
+
+.beam-two {
+  left: 35%;
+  animation-delay: -2.4s;
+  background: linear-gradient(180deg, rgba(242, 212, 122, 0.38), rgba(255, 255, 255, 0));
+}
+
+.beam-three {
+  right: -2%;
+  animation-delay: -4.8s;
+  background: linear-gradient(180deg, rgba(85, 189, 211, 0.28), rgba(255, 255, 255, 0));
+}
+
+@keyframes glowShift {
+  50% {
+    transform: translateY(-10px) rotate(-10deg);
+    opacity: 0.9;
+  }
 }
 
 .hero-image {
@@ -423,6 +483,11 @@ h3 {
   color: #3b4a45;
   font-size: 13px;
   font-weight: 700;
+}
+
+.hub-line span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .hub-line i {
@@ -1110,15 +1175,21 @@ textarea {
     display: none;
   }
 
+  .nav-action {
+    display: none;
+  }
+
   .nav-inner,
   .hero,
   .page-hero,
   .section,
   .tutorial-layout {
-    width: min(100% - 24px, var(--max));
+    width: calc(100vw - 24px);
+    max-width: var(--max);
   }
 
   .nav-links {
+    max-width: 100%;
     flex-wrap: wrap;
     overflow-x: visible;
     border-radius: 20px;
@@ -1134,6 +1205,7 @@ textarea {
   .hero {
     padding-top: 46px;
     min-height: auto;
+    gap: 28px;
   }
 
   .hero h1,
@@ -1146,8 +1218,32 @@ textarea {
     font-size: 14px;
   }
 
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-actions .primary-btn {
+    grid-column: 1 / -1;
+  }
+
+  .hero-actions .primary-btn,
+  .hero-actions .secondary-btn {
+    width: 100%;
+    min-width: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    white-space: nowrap;
+  }
+
   .hero-card {
-    min-height: 500px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    padding-bottom: 18px;
     border-radius: 24px;
   }
 
@@ -1155,15 +1251,19 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-left: 18px;
     margin-right: 18px;
+    border-radius: 18px;
+    max-width: calc(100% - 36px);
   }
 
   .hero-card-top {
     padding: 22px 18px 0;
     display: grid;
+    gap: 8px;
   }
 
   .hero-tool-panels {
-    margin: 44px 18px 0;
+    margin: 28px 18px 0;
+    max-width: none;
   }
 
   .hero-tool-panel {
@@ -1171,10 +1271,18 @@ textarea {
   }
 
   .hub-line {
-    left: 18px;
-    right: 18px;
-    flex-wrap: wrap;
-    bottom: 18px;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 18px 18px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .hub-line i {
+    display: none;
   }
 
   .quick-stats {
