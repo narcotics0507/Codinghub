@@ -11,7 +11,6 @@ PAGES = [
     "cherry-studio.html",
     "gpt-image-skill.html",
     "openclaw.html",
-    "deployment.html",
 ]
 
 ASSETS = [
@@ -155,7 +154,6 @@ class StaticSiteStructureTest(unittest.TestCase):
             "Cherry",
             "绘图",
             "OpenClaw",
-            "部署",
             "四条路径",
             "一眼看懂",
             "当前先展示 Codex App 的完整流程图",
@@ -168,7 +166,6 @@ class StaticSiteStructureTest(unittest.TestCase):
             'class="nav-action"',
             'class="light-wall"',
             'class="light-beam beam-one"',
-            'data-home-panel="deploy"',
             'class="visual-grid comic-preview-grid single-preview-grid"',
         ]
         for hook in expected_hooks:
@@ -176,6 +173,10 @@ class StaticSiteStructureTest(unittest.TestCase):
                 self.assertIn(hook, html)
 
         self.assertIn('<a class="primary-btn" href="codex.html">配置 Codex</a>', html)
+        self.assertNotIn("deployment.html", html)
+        self.assertNotIn(">部署<", html)
+        self.assertNotIn('data-home-tool="deploy"', html)
+        self.assertNotIn('data-home-panel="deploy"', html)
         self.assertNotIn('href="deployment.html">部署站点</a>', html)
         self.assertNotIn('href="gpt-image-skill.html">生成图片</a>', html)
         self.assertNotIn('data-home-card="deploy"', html)
@@ -189,6 +190,8 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn(".hero-actions .primary-btn", css)
         self.assertIn(".hub-line span", css)
         self.assertIn(".single-preview-grid", css)
+        self.assertIn("grid-template-columns: minmax(160px, 190px)", css)
+        self.assertIn("height: 150px", css)
 
     def test_homepage_template_preview_section_is_removed(self):
         html = self.read("index.html")

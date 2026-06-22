@@ -904,7 +904,15 @@ pre {
 }
 
 .single-preview-grid {
-  grid-template-columns: minmax(260px, 420px);
+  grid-template-columns: minmax(160px, 190px);
+  align-items: start;
+}
+
+.single-preview-grid .visual-card img {
+  height: 150px;
+  max-height: none;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .visual-card {
