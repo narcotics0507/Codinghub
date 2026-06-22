@@ -50,6 +50,9 @@ class StaticSiteStructureTest(unittest.TestCase):
         for page in PAGES:
             html = self.read(page)
             with self.subTest(page=page):
+                self.assertIn("CodingPlan Docs", html)
+                self.assertNotIn("Codinghub Docs", html)
+                self.assertNotIn("Codinghub Plan Docs", html)
                 self.assertIn('href="assets/css/styles.css"', html)
                 self.assertIn('src="assets/js/main.js"', html)
                 self.assertIn('href="assets/favicon.svg"', html)
@@ -135,7 +138,7 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn('class="comic-frame flow-hero-frame reveal"', html)
         self.assertIn("max-height: min(68vh, 760px)", css)
         self.assertIn(".comic-frame.flow-hero-frame img", css)
-        self.assertIn("width: auto", css)
+        self.assertIn("width: min(450px, 100%)", css)
         self.assertIn("object-fit: contain", css)
 
     def test_homepage_matches_reference_home_structure_without_feishu(self):
@@ -153,8 +156,9 @@ class StaticSiteStructureTest(unittest.TestCase):
             "绘图",
             "OpenClaw",
             "部署",
-            "五条路径",
+            "四条路径",
             "一眼看懂",
+            "当前先展示 Codex App 的完整流程图",
         ]
         for text in expected_text:
             with self.subTest(text=text):
@@ -165,8 +169,7 @@ class StaticSiteStructureTest(unittest.TestCase):
             'class="light-wall"',
             'class="light-beam beam-one"',
             'data-home-panel="deploy"',
-            'data-home-card="deploy"',
-            'class="visual-grid comic-preview-grid"',
+            'class="visual-grid comic-preview-grid single-preview-grid"',
         ]
         for hook in expected_hooks:
             with self.subTest(hook=hook):
@@ -175,9 +178,17 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn('<a class="primary-btn" href="codex.html">配置 Codex</a>', html)
         self.assertNotIn('href="deployment.html">部署站点</a>', html)
         self.assertNotIn('href="gpt-image-skill.html">生成图片</a>', html)
+        self.assertNotIn('data-home-card="deploy"', html)
+        self.assertNotIn("Cloudflare Pages 部署", html)
+        self.assertEqual(html.count("assets/images/codex/codex-app-flow.png"), 1)
+        self.assertNotIn("assets/images/codex/windows-store-codex.png", html)
+        self.assertNotIn("assets/images/codex/codex-first-launch.png", html)
+        self.assertNotIn("assets/images/codex/create-api-key.png", html)
+        self.assertNotIn("assets/images/codex/use-api-key.png", html)
         self.assertIn("overflow-x: hidden", css)
         self.assertIn(".hero-actions .primary-btn", css)
         self.assertIn(".hub-line span", css)
+        self.assertIn(".single-preview-grid", css)
 
     def test_homepage_template_preview_section_is_removed(self):
         html = self.read("index.html")

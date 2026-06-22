@@ -1,4 +1,4 @@
-# Codinghub Docs
+# CodingPlan Docs
 
 Cloudflare Pages-ready static tutorial site for Codinghub.
 
