@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Codex 自助安装和配置 | Codinghub Docs</title>
+  <title>Codex App 自助安装和配置 | Codinghub Docs</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -22,61 +22,192 @@
       <section class="page-hero">
         <div class="reveal">
           <span class="eyebrow"><span class="pulse-dot"></span> 工程开发优先</span>
-          <h1>Codex 自助安装和配置</h1>
-          <p>先准备模型服务地址和个人密钥，再把配置写入本机。这个页面是可替换模板，适合后续补充你自己的截图和内部链接。</p>
-          <p class="source-note">内容源：当前仓库原创模板，可按团队实际流程替换。</p>
-          <div class="quick-stats"><div class="stat"><strong>4 步</strong><span>完成配置</span></div><div class="stat"><strong>2 文件</strong><span>本机配置</span></div><div class="stat"><strong>1 次</strong><span>重启验证</span></div></div>
+          <h1>Codex App 自助安装和配置</h1>
+          <p>这份教程适合第一次使用 Codex Desktop App 的同事。按顺序完成账号、安装、密钥、配置和验证，就可以在本机使用 Coding Hub 提供的模型能力。</p>
+          <p class="source-note">Coding Hub 入口：<a href="http://69.63.200.80:8080/login" target="_blank" rel="noreferrer">http://69.63.200.80:8080/login</a></p>
+          <div class="quick-stats"><div class="stat"><strong>10</strong><span>核心步骤</span></div><div class="stat"><strong>macOS / Windows</strong><span>双系统覆盖</span></div><div class="stat"><strong>codex订阅</strong><span>密钥分组</span></div></div>
         </div>
         <div class="comic-frame reveal">
-          <img src="assets/images/docs-hero.png" alt="Codex 配置流程视觉图" data-zoom>
+          <img src="assets/images/docs-hero.png" alt="Codex App 自助安装和配置流程视觉图" data-zoom>
         </div>
       </section>
 
-      <main class="tutorial-layout">
+      <div class="tutorial-layout">
         <aside class="side-rail">
           <h3>教程目录</h3>
           <a class="rail-link active" href="#section-1"><span class="rail-dot"></span>导读</a>
-          <a class="rail-link" href="#section-2"><span class="rail-dot"></span>准备信息</a>
-          <a class="rail-link" href="#section-3"><span class="rail-dot"></span>写入配置</a>
-          <a class="rail-link" href="#section-4"><span class="rail-dot"></span>验证结果</a>
-          <a class="rail-link" href="#section-5"><span class="rail-dot"></span>常见问题</a>
+          <a class="rail-link" href="#section-2"><span class="rail-dot"></span>适用范围</a>
+          <a class="rail-link" href="#section-3"><span class="rail-dot"></span>打开 Coding Hub</a>
+          <a class="rail-link" href="#section-4"><span class="rail-dot"></span>注册账号</a>
+          <a class="rail-link" href="#section-5"><span class="rail-dot"></span>已有账号登录</a>
+          <a class="rail-link" href="#section-6"><span class="rail-dot"></span>安装 Codex App</a>
+          <a class="rail-link" href="#section-7"><span class="rail-dot"></span>创建 API 密钥</a>
+          <a class="rail-link" href="#section-8"><span class="rail-dot"></span>查看配置内容</a>
+          <a class="rail-link" href="#section-9"><span class="rail-dot"></span>macOS 配置方法</a>
+          <a class="rail-link" href="#section-10"><span class="rail-dot"></span>Windows 配置方法</a>
+          <a class="rail-link" href="#section-11"><span class="rail-dot"></span>重启并验证</a>
+          <a class="rail-link" href="#section-12"><span class="rail-dot"></span>中文界面</a>
+          <a class="rail-link" href="#section-13"><span class="rail-dot"></span>常见问题</a>
         </aside>
+
         <div class="content-stack">
           <section id="section-1" class="glass-card reveal">
             <h2>导读</h2>
-            <aside class="doc-callout"><p>这份教程适合第一次配置 Codex 的同事。真实落地时，把示例地址、模型名和截图替换成你的团队资料。</p></aside>
-            <p>建议先确认账号、API 密钥和模型服务地址，再开始改本机配置。不要把真实密钥写进网页、截图或公开仓库。</p>
+            <aside class="doc-callout"><p>Codex Desktop App 是面向软件开发者的 AI 编程 Agent 工作台。它不是普通聊天窗口，而是可以围绕代码仓库执行开发任务的桌面工具。</p></aside>
+            <p>你可以让它写代码、改代码、查 bug、补测试、解释项目代码和整理技术文档。使用时只需要描述目标，例如“帮我看这个报错”“给这个项目加登录功能”“把需求整理成接口文档”。</p>
+            <p>本教程只保留站点内必要内容，不包含外部文档附件或旧资料图片。</p>
           </section>
+
           <section id="section-2" class="glass-card reveal">
-            <h2>1. 准备信息</h2>
-            <div class="table-wrap"><table class="guide-table"><thead><tr><th>信息</th><th>用途</th></tr></thead><tbody><tr><td>Base URL</td><td>告诉客户端请求哪个模型服务入口。</td></tr><tr><td>API Key</td><td>个人密钥，用于鉴权和额度统计。</td></tr><tr><td>模型名</td><td>决定默认使用的文本模型。</td></tr></tbody></table></div>
+            <h2>适用范围</h2>
+            <div class="table-wrap"><table class="guide-table"><thead><tr><th>你要做什么</th><th>说明</th></tr></thead><tbody><tr><td>申请 Coding Hub 账号</td><td>使用邮箱在 <code>http://69.63.200.80:8080/login</code> 自助注册。</td></tr><tr><td>安装 Codex App</td><td>macOS 使用团队提供的 DMG 安装包，Windows 使用 Microsoft Store。</td></tr><tr><td>配置模型接口</td><td>在 Coding Hub 创建自己的 API 密钥，再把页面给出的配置写入 Codex。</td></tr><tr><td>开始使用模型</td><td>配置完成后重启 Codex App，发送一句测试问题确认可用。</td></tr></tbody></table></div>
+            <div class="callout">API 密钥只给自己使用，不要发群、不要截图、不要写进公开网页或 Git 仓库。</div>
           </section>
+
           <section id="section-3" class="glass-card reveal">
-            <h2>2. 写入配置</h2>
-            <p>先创建配置目录，再把团队提供的配置写入本机文件。</p>
+            <h2>1. 打开 Coding Hub</h2>
+            <p>在浏览器打开下面的地址：</p>
+            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>http://69.63.200.80:8080/login</code></pre></div>
+            <p>如果还没有账号，点击登录页下方的注册入口继续。</p>
+          </section>
+
+          <section id="section-4" class="glass-card reveal">
+            <h2>2. 注册账号</h2>
+            <p>注册时填写你的邮箱，并设置一个至少 6 位的密码。建议使用工作邮箱或团队统一要求的邮箱，后续管理和排查问题会更清楚。</p>
+            <div class="stepper"><div class="step"><div class="step-num">1</div><div><strong>填写邮箱</strong><p>使用你后续登录 Coding Hub 的邮箱。</p></div></div><div class="step"><div class="step-num">2</div><div><strong>设置密码</strong><p>密码至少 6 位，避免和其他服务共用弱密码。</p></div></div><div class="step"><div class="step-num">3</div><div><strong>完成注册</strong><p>注册成功后回到登录页。</p></div></div></div>
+          </section>
+
+          <section id="section-5" class="glass-card reveal">
+            <h2>3. 已有账号就直接登录</h2>
+            <p>已有账号时，不需要重复注册。回到登录页输入邮箱和密码进入 Coding Hub。如果忘记密码，先联系管理员处理，避免创建多个账号导致密钥和额度分散。</p>
+          </section>
+
+          <section id="section-6" class="glass-card reveal">
+            <h2>4. 安装 Codex App</h2>
+            <h3>macOS 用户</h3>
+            <p>根据电脑芯片选择安装包。Apple Silicon 机型使用 M 系列安装包；Intel 机型使用 x64 安装包。安装完成后第一次打开，如果系统提示安全确认，按公司设备策略处理。</p>
+            <div class="table-wrap"><table class="guide-table"><thead><tr><th>电脑类型</th><th>安装包</th></tr></thead><tbody><tr><td>Apple Silicon，M1 / M2 / M3 / M4</td><td><code>Codex.dmg</code></td></tr><tr><td>Intel Mac</td><td><code>Codex-latest-x64.dmg</code></td></tr></tbody></table></div>
+            <h3>Windows 用户</h3>
+            <ol><li>打开 <a href="https://apps.microsoft.com/search?query=codex&amp;hl=zh-CN&amp;gl=CN" target="_blank" rel="noreferrer">Microsoft Store</a>。</li><li>搜索 <code>Codex</code>。</li><li>确认开发者为 <strong>OpenAI</strong>。</li><li>点击 <strong>获取 / 安装</strong>。</li><li>安装完成后从开始菜单启动，也可以固定到桌面或任务栏。</li></ol>
+            <h3>首次启动</h3>
+            <p>打开 Codex App 后，可以先输入任意测试内容进入初始化流程。初始化完成后先关闭 Codex App，等后面写完配置再重新打开。</p>
+          </section>
+
+          <section id="section-7" class="glass-card reveal">
+            <h2>5. 在 Coding Hub 创建自己的 API 密钥</h2>
+            <p>登录 Coding Hub 后进入密钥页面。如果你的系统提供快捷入口，可以从导航里进入；也可以尝试打开：</p>
+            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>http://69.63.200.80:8080/keys</code></pre></div>
+            <p>点击 <strong>创建密钥</strong>。创建时重点检查 <strong>分组</strong>：</p>
+            <ol><li>名称可以写成 <code>我的 Codex 密钥</code> 或其他方便识别的名称。</li><li>分组选择 <strong>codex订阅</strong>。</li><li>其他开关没有特殊要求时保持默认。</li><li>点击 <strong>创建</strong>，然后回到密钥列表。</li></ol>
+          </section>
+
+          <section id="section-8" class="glass-card reveal">
+            <h2>6. 点击“使用密钥”，查看配置内容</h2>
+            <p>在密钥列表里找到刚创建的密钥，点击 <strong>使用密钥</strong>。弹窗通常会给出三类信息：</p>
+            <ul><li><code>config.toml</code> 要写入的内容。</li><li><code>auth.json</code> 要写入的内容。</li><li>macOS / Linux 和 Windows 对应的配置路径。</li></ul>
+            <p>页面里的真实密钥只显示给你自己。下面示例里的 <code>sk-这里替换成你自己的密钥</code> 只是占位，实际操作时要复制 Coding Hub 页面显示的真实内容。</p>
+          </section>
+
+          <section id="section-9" class="glass-card reveal">
+            <h2>7. macOS 配置方法</h2>
+            <h3>7.1 创建配置目录</h3>
+            <p>打开终端执行：</p>
             <div class="code-card"><div class="code-head"><span>shell</span><button class="copy-btn">复制</button></div><pre><code>mkdir -p ~/.codex</code></pre></div>
+            <h3>7.2 写入 <code>config.toml</code></h3>
+            <p>打开或新建这个文件：</p>
+            <div class="code-card"><div class="code-head"><span>plaintext</span><button class="copy-btn">复制</button></div><pre><code>~/.codex/config.toml</code></pre></div>
+            <p>把 Coding Hub 的“使用密钥”弹窗里 <code>config.toml</code> 内容复制进去，并放在文件最开头。示例：</p>
             <div class="code-card"><div class="code-head"><span>toml</span><button class="copy-btn">复制</button></div><pre><code>model_provider = "OpenAI"
-model = "your-model-name"
+model = "gpt-5.5"
+review_model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+disable_response_storage = true
+network_access = "enabled"
+windows_wsl_setup_acknowledged = true
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
 
 [model_providers.OpenAI]
 name = "OpenAI"
-base_url = "https://example.com/v1"
-env_key = "OPENAI_API_KEY"</code></pre></div>
+base_url = "http://69.63.200.80:8080"
+wire_api = "responses"
+requires_openai_auth = true</code></pre></div>
+            <h3>7.3 写入 <code>auth.json</code></h3>
+            <p>打开或新建这个文件：</p>
+            <div class="code-card"><div class="code-head"><span>plaintext</span><button class="copy-btn">复制</button></div><pre><code>~/.codex/auth.json</code></pre></div>
+            <p>把 Coding Hub 页面里 <code>auth.json</code> 的内容复制进去。示例：</p>
+            <div class="code-card"><div class="code-head"><span>json</span><button class="copy-btn">复制</button></div><pre><code>{
+  "OPENAI_API_KEY": "sk-这里替换成你自己的密钥"
+}</code></pre></div>
           </section>
-          <section id="section-4" class="glass-card reveal">
-            <h2>3. 验证结果</h2>
-            <div class="stepper"><div class="step"><div class="step-num">1</div><div><strong>重启客户端</strong><p>配置写入后重新打开 Codex。</p></div></div><div class="step"><div class="step-num">2</div><div><strong>发送测试问题</strong><p>确认模型能正常回复。</p></div></div><div class="step"><div class="step-num">3</div><div><strong>记录异常</strong><p>如果失败，记录错误信息、模型名和当前网络环境。</p></div></div></div>
+
+          <section id="section-10" class="glass-card reveal">
+            <h2>8. Windows 配置方法</h2>
+            <h3>8.1 打开配置目录</h3>
+            <p>按 <strong>Win + R</strong>，输入：</p>
+            <div class="code-card"><div class="code-head"><span>plaintext</span><button class="copy-btn">复制</button></div><pre><code>%userprofile%\.codex</code></pre></div>
+            <p>如果目录不存在，就在用户目录下手动新建一个 <code>.codex</code> 文件夹。</p>
+            <h3>8.2 写入 <code>config.toml</code></h3>
+            <p>在 <code>.codex</code> 文件夹里新建或打开：</p>
+            <div class="code-card"><div class="code-head"><span>plaintext</span><button class="copy-btn">复制</button></div><pre><code>config.toml</code></pre></div>
+            <p>把 Coding Hub 的“使用密钥”弹窗里 <code>config.toml</code> 内容复制进去，并放在文件最开头。示例：</p>
+            <div class="code-card"><div class="code-head"><span>toml</span><button class="copy-btn">复制</button></div><pre><code>model_provider = "OpenAI"
+model = "gpt-5.5"
+review_model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+disable_response_storage = true
+network_access = "enabled"
+windows_wsl_setup_acknowledged = true
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+
+[model_providers.OpenAI]
+name = "OpenAI"
+base_url = "http://69.63.200.80:8080"
+wire_api = "responses"
+requires_openai_auth = true</code></pre></div>
+            <h3>8.3 写入 <code>auth.json</code></h3>
+            <p>在 <code>.codex</code> 文件夹里新建或打开：</p>
+            <div class="code-card"><div class="code-head"><span>plaintext</span><button class="copy-btn">复制</button></div><pre><code>auth.json</code></pre></div>
+            <p>把 Coding Hub 页面里 <code>auth.json</code> 的内容复制进去。示例：</p>
+            <div class="code-card"><div class="code-head"><span>json</span><button class="copy-btn">复制</button></div><pre><code>{
+  "OPENAI_API_KEY": "sk-这里替换成你自己的密钥"
+}</code></pre></div>
           </section>
-          <section id="section-5" class="glass-card reveal">
+
+          <section id="section-11" class="glass-card reveal">
+            <h2>9. 重启 Codex App 并验证</h2>
+            <p>配置完成后完全退出 Codex App，再重新打开。Windows 直接点关闭有时不会结束后台进程，可以在任务管理器里结束 Codex，或者直接重启电脑。</p>
+            <p>重新打开后发送一句测试问题：</p>
+            <div class="code-card"><div class="code-head"><span>plaintext</span><button class="copy-btn">复制</button></div><pre><code>请用一句话介绍 Coding Hub。</code></pre></div>
+            <p>如果能正常回复，说明配置已经生效。</p>
+          </section>
+
+          <section id="section-12" class="glass-card reveal">
+            <h2>10. 如何把 Codex 设置为中文界面</h2>
+            <p>Codex 默认界面可能是英文。可以进入设置手动切换中文：</p>
+            <ol><li>打开 Codex App。</li><li>点击左上角 Codex 图标或菜单；Windows 可能需要从 <strong>File</strong> 进入。</li><li>进入 <strong>Settings</strong>。</li><li>选择 <strong>General</strong>。</li><li>找到 <strong>Language for the app UI</strong>，切换为中文。</li></ol>
+          </section>
+
+          <section id="section-13" class="glass-card reveal">
             <h2>常见问题</h2>
-            <h3>密钥能不能共用？</h3>
-            <p>不建议。每个人使用自己的密钥，方便额度统计和问题排查。</p>
-            <h3>配置后没有生效？</h3>
-            <p>检查配置文件路径、模型名、环境变量和客户端是否重启。</p>
+            <h3>1. Codex 打开后还是不能用</h3>
+            <ol><li>检查 <code>auth.json</code> 里的密钥是否完整复制。</li><li>检查 <code>config.toml</code> 是否放在文件最开头。</li><li>检查配置完成后是否完全重启 Codex App。</li></ol>
+            <h3>2. Windows 找不到 <code>.codex</code> 文件夹</h3>
+            <p>这是正常情况。按 <strong>Win + R</strong> 输入 <code>%userprofile%</code>，进入用户目录后手动新建 <code>.codex</code> 文件夹。</p>
+            <h3>3. macOS 找不到 <code>.codex</code> 文件夹</h3>
+            <p>打开终端执行：</p>
+            <div class="code-card"><div class="code-head"><span>shell</span><button class="copy-btn">复制</button></div><pre><code>mkdir -p ~/.codex
+open ~/.codex</code></pre></div>
+            <h3>4. 不知道应该复制哪段配置</h3>
+            <p>回到 Coding Hub 的密钥列表，点击 <strong>使用密钥</strong>。页面会按系统给出配置内容：macOS / Linux 看对应标签，Windows 看 Windows 标签。</p>
+            <h3>5. 密钥要不要分享给同事？</h3>
+            <p>不要。每个人都应该创建自己的 API 密钥，这样额度、异常请求和问题排查都能定位到个人。</p>
           </section>
         </div>
-      </main>
+      </div>
     </main>
+
     <footer class="footer">Codinghub Docs · Codex guide</footer>
   </div>
   <div class="lightbox"><button aria-label="关闭">×</button><img alt=""></div>

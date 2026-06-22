@@ -25,6 +25,10 @@ BLOCKED_STRINGS = [
     "yeelight.feishu.cn",
     "www.feishu.cn/docx",
     "assets/images/feishu-",
+    "https://coding-hub.yeelight.com",
+    "飞书",
+    "example.com",
+    "your-model-name",
 ]
 
 
@@ -81,6 +85,27 @@ class StaticSiteStructureTest(unittest.TestCase):
         html = self.read("index.html")
         self.assertRegex(html, r"<!doctype html>", "index should be a direct HTML entry")
         self.assertNotRegex(html, re.compile(r"<script[^>]+type=[\"']module[\"']", re.I))
+
+    def test_codex_page_uses_local_coding_hub_flow(self):
+        html = self.read("codex.html")
+        expected_text = [
+            "http://69.63.200.80:8080/login",
+            "Codex Desktop App",
+            "注册账号",
+            "安装 Codex App",
+            "codex订阅",
+            "使用密钥",
+            "config.toml",
+            "auth.json",
+            "macOS 配置方法",
+            "Windows 配置方法",
+            "Microsoft Store",
+            "gpt-5.5",
+            "请用一句话介绍 Coding Hub。",
+        ]
+        for text in expected_text:
+            with self.subTest(text=text):
+                self.assertIn(text, html)
 
 
 if __name__ == "__main__":
