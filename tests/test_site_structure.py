@@ -18,6 +18,11 @@ ASSETS = [
     "assets/css/styles.css",
     "assets/js/main.js",
     "assets/favicon.svg",
+    "assets/images/codex/codex-app-flow.png",
+    "assets/images/codex/windows-store-codex.png",
+    "assets/images/codex/codex-first-launch.png",
+    "assets/images/codex/create-api-key.png",
+    "assets/images/codex/use-api-key.png",
 ]
 
 BLOCKED_STRINGS = [
@@ -100,12 +105,26 @@ class StaticSiteStructureTest(unittest.TestCase):
             "macOS 配置方法",
             "Windows 配置方法",
             "Microsoft Store",
+            "Download for macOS (Apple Silicon)",
+            "Download for macOS (Intel)",
+            "Download for Windows",
             "gpt-5.5",
             "请用一句话介绍 Coding Hub。",
         ]
         for text in expected_text:
             with self.subTest(text=text):
                 self.assertIn(text, html)
+
+        expected_images = [
+            "assets/images/codex/codex-app-flow.png",
+            "assets/images/codex/windows-store-codex.png",
+            "assets/images/codex/codex-first-launch.png",
+            "assets/images/codex/create-api-key.png",
+            "assets/images/codex/use-api-key.png",
+        ]
+        for image in expected_images:
+            with self.subTest(image=image):
+                self.assertIn(image, html)
 
 
 if __name__ == "__main__":

@@ -839,6 +839,25 @@ pre {
   cursor: zoom-in;
 }
 
+.visual-card.flow-card img,
+.visual-card.screenshot-card img,
+.visual-card.banner-card img {
+  display: block;
+  object-fit: contain;
+}
+
+.visual-card.flow-card img {
+  max-height: none;
+}
+
+.visual-card.screenshot-card img {
+  max-height: 760px;
+}
+
+.visual-card.banner-card img {
+  max-height: 360px;
+}
+
 .visual-card figcaption {
   padding: 11px 13px;
   color: var(--muted);
