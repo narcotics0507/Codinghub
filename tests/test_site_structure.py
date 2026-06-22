@@ -93,10 +93,12 @@ class StaticSiteStructureTest(unittest.TestCase):
 
     def test_codex_page_uses_local_coding_hub_flow(self):
         html = self.read("codex.html")
+        css = self.read("assets/css/styles.css")
         expected_text = [
             "http://69.63.200.80:8080/login",
             "Codex Desktop App",
             "注册账号",
+            "建议使用企微邮箱",
             "安装 Codex App",
             "codex订阅",
             "使用密钥",
@@ -125,6 +127,23 @@ class StaticSiteStructureTest(unittest.TestCase):
         for image in expected_images:
             with self.subTest(image=image):
                 self.assertIn(image, html)
+
+        self.assertNotIn("建议使用工作邮箱或团队统一要求的邮箱", html)
+        self.assertIn("max-height: min(82vh, 920px)", css)
+        self.assertIn("width: auto", css)
+
+    def test_homepage_template_preview_section_is_removed(self):
+        html = self.read("index.html")
+        removed_text = [
+            "视觉预览",
+            "用统一模板维护长篇教程",
+            "每个教程页都使用同一套 hero",
+            "首页 hero 和路径选择",
+            "教程页结构：目录、步骤、代码块、FAQ",
+        ]
+        for text in removed_text:
+            with self.subTest(text=text):
+                self.assertNotIn(text, html)
 
 
 if __name__ == "__main__":
