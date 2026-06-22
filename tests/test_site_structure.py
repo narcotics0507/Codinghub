@@ -129,7 +129,12 @@ class StaticSiteStructureTest(unittest.TestCase):
                 self.assertIn(image, html)
 
         self.assertNotIn("建议使用工作邮箱或团队统一要求的邮箱", html)
+        self.assertNotIn("Codex App 自助安装配置全流程，入口已替换为当前 Coding Hub 地址。", html)
+        self.assertNotIn('class="visual-card flow-card"', html)
+        self.assertEqual(html.count("assets/images/codex/codex-app-flow.png"), 1)
+        self.assertIn('class="comic-frame flow-hero-frame reveal"', html)
         self.assertIn("max-height: min(82vh, 920px)", css)
+        self.assertIn(".comic-frame.flow-hero-frame img", css)
         self.assertIn("width: auto", css)
 
     def test_homepage_template_preview_section_is_removed(self):

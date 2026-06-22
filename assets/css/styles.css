@@ -622,6 +622,19 @@ h3 {
   cursor: zoom-in;
 }
 
+.comic-frame.flow-hero-frame {
+  display: flex;
+  justify-content: center;
+  max-height: none;
+}
+
+.comic-frame.flow-hero-frame img {
+  width: auto;
+  max-width: 100%;
+  max-height: min(82vh, 920px);
+  object-fit: contain;
+}
+
 .quick-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -839,23 +852,10 @@ pre {
   cursor: zoom-in;
 }
 
-.visual-card.flow-card img,
 .visual-card.screenshot-card img,
 .visual-card.banner-card img {
   display: block;
   object-fit: contain;
-}
-
-.visual-card.flow-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.visual-card.flow-card img {
-  width: auto;
-  max-width: 100%;
-  max-height: min(82vh, 920px);
 }
 
 .visual-card.screenshot-card img {
