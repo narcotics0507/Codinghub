@@ -216,13 +216,13 @@ class StaticSiteStructureTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertNotIn(text, html)
 
-    def test_nav_links_have_stable_hover_hit_area(self):
+    def test_nav_buttons_show_pointer_only_on_buttons(self):
         css = self.read("assets/css/styles.css")
         nav_block = re.search(r"\.nav-links\s*\{(?P<body>[^}]+)\}", css)
         self.assertIsNotNone(nav_block, "missing nav style block")
         nav_body = nav_block.group("body")
         self.assertIn("gap: 0", nav_body)
-        self.assertIn("cursor: pointer", nav_body)
+        self.assertNotIn("cursor: pointer", nav_body)
 
         nav_link_block = re.search(r"\.nav-links a\s*\{(?P<body>[^}]+)\}", css)
         self.assertIsNotNone(nav_link_block, "missing nav link style block")
@@ -230,7 +230,7 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn("display: inline-flex", body)
         self.assertIn("align-items: center", body)
         self.assertIn("justify-content: center", body)
-        self.assertIn("cursor: pointer", body)
+        self.assertIn("cursor: pointer !important", body)
         self.assertNotRegex(css, r"\.nav-links a(?::hover|\.active)[^{]*\{[^}]*transform")
 
 
