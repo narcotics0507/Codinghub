@@ -30,6 +30,7 @@ BLOCKED_STRINGS = [
     "www.feishu.cn/docx",
     "assets/images/feishu-",
     "https://coding-hub.yeelight.com",
+    "http://69.63.200.80:8080",
     "飞书",
     "example.com",
     "your-model-name",
@@ -100,7 +101,8 @@ class StaticSiteStructureTest(unittest.TestCase):
         html = self.read("codex.html")
         css = self.read("assets/css/styles.css")
         expected_text = [
-            "http://69.63.200.80:8080/login",
+            "https://coding-hub.sonic.nyc.mn",
+            "https://coding-hub.sonic.nyc.mn/keys",
             "Codex Desktop App",
             "注册账号",
             "建议使用企微邮箱",
@@ -142,6 +144,11 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn(".comic-frame.flow-hero-frame img", css)
         self.assertIn("width: min(450px, 100%)", css)
         self.assertIn("object-fit: contain", css)
+
+    def test_gpt_image_uses_coding_hub_domain(self):
+        html = self.read("gpt-image-skill.html")
+        self.assertIn('export OPENAI_BASE_URL="https://coding-hub.sonic.nyc.mn"', html)
+        self.assertNotIn("69.63.200.80", html)
 
     def test_homepage_matches_reference_home_structure_without_feishu(self):
         html = self.read("index.html")

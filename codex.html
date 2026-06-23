@@ -24,7 +24,7 @@
           <span class="eyebrow"><span class="pulse-dot"></span> 工程开发优先</span>
           <h1>Codex App 自助安装和配置</h1>
           <p>这份教程适合第一次使用 Codex Desktop App 的同事。按顺序完成账号、安装、密钥、配置和验证，就可以在本机使用 Coding Hub 提供的模型能力。</p>
-          <p class="source-note">Coding Hub 入口：<a href="http://69.63.200.80:8080/login" target="_blank" rel="noreferrer">http://69.63.200.80:8080/login</a></p>
+          <p class="source-note">Coding Hub 入口：<a href="https://coding-hub.sonic.nyc.mn" target="_blank" rel="noreferrer">https://coding-hub.sonic.nyc.mn</a></p>
           <div class="quick-stats"><div class="stat"><strong>10</strong><span>核心步骤</span></div><div class="stat"><strong>macOS / Windows</strong><span>双系统覆盖</span></div><div class="stat"><strong>codex订阅</strong><span>密钥分组</span></div></div>
         </div>
         <div class="comic-frame flow-hero-frame reveal">
@@ -60,14 +60,14 @@
 
           <section id="section-2" class="glass-card reveal">
             <h2>适用范围</h2>
-            <div class="table-wrap"><table class="guide-table"><thead><tr><th>你要做什么</th><th>说明</th></tr></thead><tbody><tr><td>申请 Coding Hub 账号</td><td>使用邮箱在 <code>http://69.63.200.80:8080/login</code> 自助注册。</td></tr><tr><td>安装 Codex App</td><td>macOS 使用 OpenAI 官方 DMG 安装包，Windows 使用 Microsoft Store。</td></tr><tr><td>配置模型接口</td><td>在 Coding Hub 创建自己的 API 密钥，再把页面给出的配置写入 Codex。</td></tr><tr><td>开始使用模型</td><td>配置完成后重启 Codex App，发送一句测试问题确认可用。</td></tr></tbody></table></div>
+            <div class="table-wrap"><table class="guide-table"><thead><tr><th>你要做什么</th><th>说明</th></tr></thead><tbody><tr><td>申请 Coding Hub 账号</td><td>使用邮箱在 <code>https://coding-hub.sonic.nyc.mn</code> 自助注册。</td></tr><tr><td>安装 Codex App</td><td>macOS 使用 OpenAI 官方 DMG 安装包，Windows 使用 Microsoft Store。</td></tr><tr><td>配置模型接口</td><td>在 Coding Hub 创建自己的 API 密钥，再把页面给出的配置写入 Codex。</td></tr><tr><td>开始使用模型</td><td>配置完成后重启 Codex App，发送一句测试问题确认可用。</td></tr></tbody></table></div>
             <div class="callout">API 密钥只给自己使用，不要发群、不要截图、不要写进公开网页或 Git 仓库。</div>
           </section>
 
           <section id="section-3" class="glass-card reveal">
             <h2>1. 打开 Coding Hub</h2>
             <p>在浏览器打开下面的地址：</p>
-            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>http://69.63.200.80:8080/login</code></pre></div>
+            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>https://coding-hub.sonic.nyc.mn</code></pre></div>
             <p>如果还没有账号，点击登录页下方的注册入口继续。</p>
           </section>
 
@@ -107,7 +107,7 @@
           <section id="section-7" class="glass-card reveal">
             <h2>5. 在 Coding Hub 创建自己的 API 密钥</h2>
             <p>登录 Coding Hub 后进入密钥页面。如果你的系统提供快捷入口，可以从导航里进入；也可以尝试打开：</p>
-            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>http://69.63.200.80:8080/keys</code></pre></div>
+            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>https://coding-hub.sonic.nyc.mn/keys</code></pre></div>
             <p>点击 <strong>创建密钥</strong>。创建时重点检查 <strong>分组</strong>：</p>
             <figure class="visual-card screenshot-card">
               <img src="assets/images/codex/create-api-key.png" alt="在 Coding Hub 创建自己的 API 密钥" loading="lazy" data-zoom>
@@ -148,7 +148,7 @@ model_auto_compact_token_limit = 900000
 
 [model_providers.OpenAI]
 name = "OpenAI"
-base_url = "http://69.63.200.80:8080"
+base_url = "https://coding-hub.sonic.nyc.mn"
 wire_api = "responses"
 requires_openai_auth = true</code></pre></div>
             <h3>7.3 写入 <code>auth.json</code></h3>
@@ -182,7 +182,7 @@ model_auto_compact_token_limit = 900000
 
 [model_providers.OpenAI]
 name = "OpenAI"
-base_url = "http://69.63.200.80:8080"
+base_url = "https://coding-hub.sonic.nyc.mn"
 wire_api = "responses"
 requires_openai_auth = true</code></pre></div>
             <h3>8.3 写入 <code>auth.json</code></h3>
