@@ -218,6 +218,12 @@ class StaticSiteStructureTest(unittest.TestCase):
 
     def test_nav_links_have_stable_hover_hit_area(self):
         css = self.read("assets/css/styles.css")
+        nav_block = re.search(r"\.nav-links\s*\{(?P<body>[^}]+)\}", css)
+        self.assertIsNotNone(nav_block, "missing nav style block")
+        nav_body = nav_block.group("body")
+        self.assertIn("gap: 0", nav_body)
+        self.assertIn("cursor: pointer", nav_body)
+
         nav_link_block = re.search(r"\.nav-links a\s*\{(?P<body>[^}]+)\}", css)
         self.assertIsNotNone(nav_link_block, "missing nav link style block")
         body = nav_link_block.group("body")
