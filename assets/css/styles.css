@@ -150,12 +150,19 @@ textarea {
 }
 
 .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
+  min-height: 36px;
   padding: 8px 12px;
   border-radius: 999px;
   color: #35433f;
+  cursor: pointer;
   font-size: 12.5px;
+  line-height: 1;
   white-space: nowrap;
+  transition: background 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
 }
 
 .nav-links a.active,

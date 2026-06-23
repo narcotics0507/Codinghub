@@ -216,6 +216,17 @@ class StaticSiteStructureTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertNotIn(text, html)
 
+    def test_nav_links_have_stable_hover_hit_area(self):
+        css = self.read("assets/css/styles.css")
+        nav_link_block = re.search(r"\.nav-links a\s*\{(?P<body>[^}]+)\}", css)
+        self.assertIsNotNone(nav_link_block, "missing nav link style block")
+        body = nav_link_block.group("body")
+        self.assertIn("display: inline-flex", body)
+        self.assertIn("align-items: center", body)
+        self.assertIn("justify-content: center", body)
+        self.assertIn("cursor: pointer", body)
+        self.assertNotRegex(css, r"\.nav-links a(?::hover|\.active)[^{]*\{[^}]*transform")
+
 
 if __name__ == "__main__":
     unittest.main()
