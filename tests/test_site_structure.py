@@ -22,6 +22,14 @@ ASSETS = [
     "assets/images/codex/codex-first-launch.png",
     "assets/images/codex/create-api-key.png",
     "assets/images/codex/use-api-key.png",
+    "assets/images/codex/codexplusplus-release-assets.png",
+    "assets/images/codex/codexplusplus-macos-download.png",
+    "assets/images/codex/codexplusplus-macos-applications.png",
+    "assets/images/codex/codexplusplus-security-warning.png",
+    "assets/images/codex/codexplusplus-security-allow.png",
+    "assets/images/codex/codexplusplus-manager-home.png",
+    "assets/images/codex/codexplusplus-manager-config.png",
+    "assets/images/codex/codexplusplus-manager-use.png",
 ]
 
 BLOCKED_STRINGS = [
@@ -119,6 +127,15 @@ class StaticSiteStructureTest(unittest.TestCase):
             "Download for Windows",
             "gpt-5.5",
             "请用一句话介绍 Coding Hub。",
+            "Codex++ 使用教程",
+            "https://github.com/BigPizzaV3/CodexPlusPlus/releases",
+            "CodexPlusPlus-1.2.18-macos-arm64.dmg",
+            "CodexPlusPlus-1.2.18-macos-x64.dmg",
+            "CodexPlusPlus-1.2.18-windows-x64-setup.exe",
+            "Windows：下载完成后直接一直下一步安装。",
+            "macOS：打开 dmg 文件",
+            "打开 Codex++ 管理工具",
+            "保存后点击使用",
         ]
         for text in expected_text:
             with self.subTest(text=text):
@@ -130,6 +147,14 @@ class StaticSiteStructureTest(unittest.TestCase):
             "assets/images/codex/codex-first-launch.png",
             "assets/images/codex/create-api-key.png",
             "assets/images/codex/use-api-key.png",
+            "assets/images/codex/codexplusplus-release-assets.png",
+            "assets/images/codex/codexplusplus-macos-download.png",
+            "assets/images/codex/codexplusplus-macos-applications.png",
+            "assets/images/codex/codexplusplus-security-warning.png",
+            "assets/images/codex/codexplusplus-security-allow.png",
+            "assets/images/codex/codexplusplus-manager-home.png",
+            "assets/images/codex/codexplusplus-manager-config.png",
+            "assets/images/codex/codexplusplus-manager-use.png",
         ]
         for image in expected_images:
             with self.subTest(image=image):
@@ -142,8 +167,18 @@ class StaticSiteStructureTest(unittest.TestCase):
         self.assertIn('class="comic-frame flow-hero-frame reveal"', html)
         self.assertIn("max-height: min(68vh, 760px)", css)
         self.assertIn(".comic-frame.flow-hero-frame img", css)
+        image_block = re.search(r"img\s*\{(?P<body>[^}]+)\}", css)
+        self.assertIsNotNone(image_block, "missing global image style")
+        self.assertIn("height: auto", image_block.group("body"))
         self.assertIn("width: min(450px, 100%)", css)
         self.assertIn("object-fit: contain", css)
+        self.assertIn("scroll-margin-top: 118px", css)
+        codex_images = re.findall(r'<img src="assets/images/codex/[^"]+"[^>]*>', html)
+        self.assertTrue(codex_images, "missing Codex page images")
+        for image_tag in codex_images:
+            with self.subTest(image_tag=image_tag):
+                self.assertRegex(image_tag, r'\bwidth="\d+"')
+                self.assertRegex(image_tag, r'\bheight="\d+"')
 
     def test_gpt_image_uses_coding_hub_domain(self):
         html = self.read("gpt-image-skill.html")

@@ -25,10 +25,10 @@
           <h1>Codex App 自助安装和配置</h1>
           <p>这份教程适合第一次使用 Codex Desktop App 的同事。按顺序完成账号、安装、密钥、配置和验证，就可以在本机使用 Coding Hub 提供的模型能力。</p>
           <p class="source-note">Coding Hub 入口：<a href="https://coding-hub.sonic.nyc.mn" target="_blank" rel="noreferrer">https://coding-hub.sonic.nyc.mn</a></p>
-          <div class="quick-stats"><div class="stat"><strong>10</strong><span>核心步骤</span></div><div class="stat"><strong>macOS / Windows</strong><span>双系统覆盖</span></div><div class="stat"><strong>codex订阅</strong><span>密钥分组</span></div></div>
+          <div class="quick-stats"><div class="stat"><strong>11</strong><span>核心步骤</span></div><div class="stat"><strong>macOS / Windows</strong><span>双系统覆盖</span></div><div class="stat"><strong>codex订阅</strong><span>密钥分组</span></div></div>
         </div>
         <div class="comic-frame flow-hero-frame reveal">
-          <img src="assets/images/codex/codex-app-flow.png" alt="Codex App 自助安装配置全流程" data-zoom>
+          <img src="assets/images/codex/codex-app-flow.png" alt="Codex App 自助安装配置全流程" width="2160" height="3840" data-zoom>
         </div>
       </section>
 
@@ -46,8 +46,9 @@
           <a class="rail-link" href="#section-9"><span class="rail-dot"></span>macOS 配置方法</a>
           <a class="rail-link" href="#section-10"><span class="rail-dot"></span>Windows 配置方法</a>
           <a class="rail-link" href="#section-11"><span class="rail-dot"></span>重启并验证</a>
-          <a class="rail-link" href="#section-12"><span class="rail-dot"></span>中文界面</a>
-          <a class="rail-link" href="#section-13"><span class="rail-dot"></span>常见问题</a>
+          <a class="rail-link" href="#section-12"><span class="rail-dot"></span>Codex++ 使用教程</a>
+          <a class="rail-link" href="#section-13"><span class="rail-dot"></span>中文界面</a>
+          <a class="rail-link" href="#section-14"><span class="rail-dot"></span>常见问题</a>
         </aside>
 
         <div class="content-stack">
@@ -92,14 +93,14 @@
             <h3>Windows 用户</h3>
             <ol><li>打开 <a href="https://apps.microsoft.com/search?query=codex&amp;hl=zh-CN&amp;gl=CN" target="_blank" rel="noreferrer">Microsoft Store</a>。</li><li>搜索 <code>Codex</code>。</li><li>确认开发者为 <strong>OpenAI</strong>。</li><li>点击 <strong>获取 / 安装</strong>。</li><li>安装完成后从开始菜单启动，也可以固定到桌面或任务栏。</li></ol>
             <figure class="visual-card screenshot-card">
-              <img src="assets/images/codex/windows-store-codex.png" alt="Windows 在 Microsoft Store 下载 Codex App" loading="lazy" data-zoom>
+              <img src="assets/images/codex/windows-store-codex.png" alt="Windows 在 Microsoft Store 下载 Codex App" width="1699" height="878" loading="lazy" data-zoom>
               <figcaption>Windows 用户在 Microsoft Store 找到 OpenAI 发布的 Codex 后安装。</figcaption>
             </figure>
             <h3>安装完成后启动和初始化 Codex App</h3>
             <p>打开 Codex App 软件（Windows 可在开始菜单中找到并打开，建议从开始菜单拖动为桌面快捷方式）。</p>
             <p>然后点击 <strong>使用其他方式登录</strong>，输入任意字符即可进入初始化流程。初始化完成后先关闭 Codex App，等后面写完配置再重新打开。</p>
             <figure class="visual-card screenshot-card">
-              <img src="assets/images/codex/codex-first-launch.png" alt="Codex App 首次启动时选择使用其他方式登录" loading="lazy" data-zoom>
+              <img src="assets/images/codex/codex-first-launch.png" alt="Codex App 首次启动时选择使用其他方式登录" width="1618" height="1396" loading="lazy" data-zoom>
               <figcaption>首次启动时点击“使用其他方式登录”，后续再写入 Coding Hub 的配置。</figcaption>
             </figure>
           </section>
@@ -110,7 +111,7 @@
             <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>https://coding-hub.sonic.nyc.mn/keys</code></pre></div>
             <p>点击 <strong>创建密钥</strong>。创建时重点检查 <strong>分组</strong>：</p>
             <figure class="visual-card screenshot-card">
-              <img src="assets/images/codex/create-api-key.png" alt="在 Coding Hub 创建自己的 API 密钥" loading="lazy" data-zoom>
+              <img src="assets/images/codex/create-api-key.png" alt="在 Coding Hub 创建自己的 API 密钥" width="1116" height="1310" loading="lazy" data-zoom>
               <figcaption>创建密钥时填写名称，分组选择可用的 Codex 分组，其他限制按需要开启。</figcaption>
             </figure>
             <ol><li>名称可以写成 <code>我的 Codex 密钥</code> 或其他方便识别的名称。</li><li>分组选择 <strong>codex订阅</strong>。</li><li>其他开关没有特殊要求时保持默认。</li><li>点击 <strong>创建</strong>，然后回到密钥列表。</li></ol>
@@ -120,7 +121,7 @@
             <h2>6. 点击“使用密钥”，查看配置内容</h2>
             <p>在密钥列表里找到刚创建的密钥，点击 <strong>使用密钥</strong>。弹窗通常会给出三类信息：</p>
             <figure class="visual-card banner-card">
-              <img src="assets/images/codex/use-api-key.png" alt="在 Coding Hub 密钥列表点击使用密钥" loading="lazy" data-zoom>
+              <img src="assets/images/codex/use-api-key.png" alt="在 Coding Hub 密钥列表点击使用密钥" width="3320" height="450" loading="lazy" data-zoom>
               <figcaption>点击密钥右侧的“使用密钥”，查看 Codex App 需要写入的配置内容。</figcaption>
             </figure>
             <ul><li><code>config.toml</code> 要写入的内容。</li><li><code>auth.json</code> 要写入的内容。</li><li>macOS / Linux 和 Windows 对应的配置路径。</li></ul>
@@ -203,12 +204,67 @@ requires_openai_auth = true</code></pre></div>
           </section>
 
           <section id="section-12" class="glass-card reveal">
-            <h2>10. 如何把 Codex 设置为中文界面</h2>
+            <h2>10. Codex++ 使用教程</h2>
+            <p>Codex App 基础配置确认可用后，可以继续安装 Codex++。Codex++ 主要用于扩展插件能力，安装前先确认上一节的 Codex App 已经能正常回复。</p>
+            <h3>10.1 下载 Codex++</h3>
+            <p>打开 CodexPlusPlus 的 Releases 页面，按自己的系统选择安装包：</p>
+            <div class="code-card"><div class="code-head"><span>URL</span><button class="copy-btn">复制</button></div><pre><code>https://github.com/BigPizzaV3/CodexPlusPlus/releases</code></pre></div>
+            <div class="table-wrap"><table class="guide-table"><thead><tr><th>系统</th><th>下载文件</th></tr></thead><tbody><tr><td>Apple Silicon Mac，M1 / M2 / M3 / M4</td><td><code>CodexPlusPlus-1.2.18-macos-arm64.dmg</code></td></tr><tr><td>Intel Mac</td><td><code>CodexPlusPlus-1.2.18-macos-x64.dmg</code></td></tr><tr><td>Windows</td><td><code>CodexPlusPlus-1.2.18-windows-x64-setup.exe</code></td></tr></tbody></table></div>
+            <figure class="visual-card banner-card">
+              <img src="assets/images/codex/codexplusplus-release-assets.png" alt="CodexPlusPlus Releases 下载文件选择" width="1968" height="458" loading="lazy" data-zoom>
+              <figcaption>在 Releases 的 Assets 中选择对应系统版本：ARM Mac、Intel Mac 或 Windows。</figcaption>
+            </figure>
+            <h3>10.2 Windows 安装</h3>
+            <p>Windows：下载完成后直接一直下一步安装。安装结束后从开始菜单打开 Codex++ 或 Codex++ 管理工具。</p>
+            <h3>10.3 macOS 安装</h3>
+            <p>macOS：打开 dmg 文件，然后按图示把两个图标都拖到 <strong>Applications</strong> 中。</p>
+            <div class="visual-grid">
+              <figure class="visual-card screenshot-card">
+                <img src="assets/images/codex/codexplusplus-macos-download.png" alt="macOS 下载 Codex++ dmg 文件" width="1912" height="1474" loading="lazy" data-zoom>
+                <figcaption>下载完成后打开对应的 <code>.dmg</code> 文件。</figcaption>
+              </figure>
+              <figure class="visual-card screenshot-card">
+                <img src="assets/images/codex/codexplusplus-macos-applications.png" alt="把 Codex++ 和 Codex++ 管理工具拖到 Applications" width="1912" height="944" loading="lazy" data-zoom>
+                <figcaption>把 <strong>Codex++</strong> 和 <strong>Codex++ 管理工具</strong> 都拖到 Applications。</figcaption>
+              </figure>
+            </div>
+            <p>安装后，在应用程序中分别打开一次这两个应用。如果 macOS 弹出安全提示，进入 <strong>系统设置 → 隐私与安全性 → 安全性</strong>，点击允许后再打开。</p>
+            <div class="visual-grid">
+              <figure class="visual-card screenshot-card">
+                <img src="assets/images/codex/codexplusplus-security-warning.png" alt="macOS 打开 Codex++ 管理工具时的安全提示" width="592" height="542" loading="lazy" data-zoom>
+                <figcaption>首次打开时如果提示无法验证开发者，先进入系统设置处理。</figcaption>
+              </figure>
+              <figure class="visual-card screenshot-card">
+                <img src="assets/images/codex/codexplusplus-security-allow.png" alt="macOS 隐私与安全性中允许 Codex++ 管理工具" width="1080" height="1262" loading="lazy" data-zoom>
+                <figcaption>在隐私与安全性里允许打开 Codex++ 管理工具。</figcaption>
+              </figure>
+            </div>
+            <h3>10.4 配置 Codex++</h3>
+            <p>打开 Codex++ 管理工具，进入网络配置页面，把 Coding Hub 提供的密钥和接口信息填进去。配置完成后点击 <strong>保存</strong>。</p>
+            <div class="visual-grid">
+              <figure class="visual-card screenshot-card">
+                <img src="assets/images/codex/codexplusplus-manager-home.png" alt="打开 Codex++ 管理工具" width="2432" height="1712" loading="lazy" data-zoom>
+                <figcaption>打开 Codex++ 管理工具后，进入网络配置。</figcaption>
+              </figure>
+              <figure class="visual-card screenshot-card">
+                <img src="assets/images/codex/codexplusplus-manager-config.png" alt="Codex++ 管理工具中填写 Coding Hub 配置" width="2432" height="1712" loading="lazy" data-zoom>
+                <figcaption>按页面提示填写 Coding Hub 的 Key 和接口配置，然后点击保存。</figcaption>
+              </figure>
+            </div>
+            <p>保存后点击使用，然后重启 Codex++，即可解锁插件使用。</p>
+            <figure class="visual-card screenshot-card">
+              <img src="assets/images/codex/codexplusplus-manager-use.png" alt="Codex++ 管理工具保存后点击使用" width="2432" height="1712" loading="lazy" data-zoom>
+              <figcaption>保存配置后点击“使用”，再重启 Codex++。</figcaption>
+            </figure>
+          </section>
+
+          <section id="section-13" class="glass-card reveal">
+            <h2>11. 如何把 Codex 设置为中文界面</h2>
             <p>Codex 默认界面可能是英文。可以进入设置手动切换中文：</p>
             <ol><li>打开 Codex App。</li><li>点击左上角 Codex 图标或菜单；Windows 可能需要从 <strong>File</strong> 进入。</li><li>进入 <strong>Settings</strong>。</li><li>选择 <strong>General</strong>。</li><li>找到 <strong>Language for the app UI</strong>，切换为中文。</li></ol>
           </section>
 
-          <section id="section-13" class="glass-card reveal">
+          <section id="section-14" class="glass-card reveal">
             <h2>常见问题</h2>
             <h3>1. Codex 打开后还是不能用</h3>
             <ol><li>检查 <code>auth.json</code> 里的密钥是否完整复制。</li><li>检查 <code>config.toml</code> 是否放在文件最开头。</li><li>检查配置完成后是否完全重启 Codex App。</li></ol>
