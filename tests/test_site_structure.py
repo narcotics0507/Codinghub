@@ -129,9 +129,10 @@ class StaticSiteStructureTest(unittest.TestCase):
             "请用一句话介绍 Coding Hub。",
             "Codex++ 使用教程",
             "https://github.com/BigPizzaV3/CodexPlusPlus/releases",
-            "CodexPlusPlus-1.2.18-macos-arm64.dmg",
-            "CodexPlusPlus-1.2.18-macos-x64.dmg",
-            "CodexPlusPlus-1.2.18-windows-x64-setup.exe",
+            "https://github.com/BigPizzaV3/CodexPlusPlus/releases/latest",
+            "文件名包含 macos-arm64，后缀为 .dmg",
+            "文件名包含 macos-x64，后缀为 .dmg",
+            "文件名包含 windows-x64，后缀为 .exe",
             "Windows：下载完成后直接一直下一步安装。",
             "macOS：打开 dmg 文件",
             "打开 Codex++ 管理工具",
@@ -162,6 +163,7 @@ class StaticSiteStructureTest(unittest.TestCase):
 
         self.assertNotIn("建议使用工作邮箱或团队统一要求的邮箱", html)
         self.assertNotIn("Codex App 自助安装配置全流程，入口已替换为当前 Coding Hub 地址。", html)
+        self.assertNotIn("CodexPlusPlus-1.2.18", html)
         self.assertNotIn('class="visual-card flow-card"', html)
         self.assertEqual(html.count("assets/images/codex/codex-app-flow.png"), 1)
         self.assertIn('class="comic-frame flow-hero-frame reveal"', html)
